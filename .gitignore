@@ -1,0 +1,29 @@
+# Credentials - never commit
+.env
+
+# Runtime data
+logs/
+airflow_home/
+postgres_data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Editor
+.idea/
+.vscode/
+.claude/
+*.swp
+*.swo
+*~
+.DS_Store
+
+#archives
+/archive/

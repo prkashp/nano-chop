@@ -1,0 +1,21 @@
+# Docker build exclusions
+.git
+.gitignore
+.env
+.env.local
+.env.*.local
+*.pyc
+__pycache__
+.pytest_cache
+.venv
+venv
+env
+.idea
+.vscode
+*.swp
+*.swo
+*~
+.DS_Store
+logs/
+airflow_home/
+postgres_data/
