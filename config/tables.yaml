@@ -1,0 +1,58 @@
+# nano-chop Configuration
+# Define Snowflake environments and table mappings
+
+environments:
+  # Example: Production environment
+  prod:
+    account: "${SNOWFLAKE_ACCOUNT}"
+    user: "${SNOWFLAKE_USER}"
+    warehouse: "${SNOWFLAKE_WAREHOUSE}"
+    database: "${SNOWFLAKE_DATABASE}"
+    role: "${SNOWFLAKE_ROLE}"
+    private_key_path: "${SNOWFLAKE_PRIVATE_KEY_PATH}"
+    private_key_passphrase: "${SNOWFLAKE_KEY_PASSPHRASE}"
+    landing_schema: "LANDING"
+    target_schema: "IMPORT"
+    tmp_schema: "TMP"
+
+  # Example: Development environment (adjust as needed)
+  dev:
+    account: "${SNOWFLAKE_ACCOUNT}"
+    user: "${SNOWFLAKE_USER}"
+    warehouse: "DEV_WH"
+    database: "DEV_DB"
+    role: "DEVELOPER"
+    private_key_path: "${SNOWFLAKE_PRIVATE_KEY_PATH}"
+    private_key_passphrase: "${SNOWFLAKE_KEY_PASSPHRASE}"
+    landing_schema: "LANDING"
+    target_schema: "IMPORT"
+    tmp_schema: "TMP"
+
+# Table groups: organize tables by domain
+# Format: group_name -> list of table names
+tables:
+  # Add table groups below
+  # Example:
+  # agreements:
+  #   - agreement
+  #   - member_agreement
+  # benefits:
+  #   - benefit_type
+  #   - benefits_family
+
+  # Populate with your own tables
+  example:
+    - example_table_1
+    - example_table_2
+
+# DDL Syncer configuration
+ddl_syncer:
+  # Default run mode: "" (last 5 days), "FULL" (all data), "TEST" (latest batch)
+  default_run_mode: ""
+
+# Streams Processor configuration
+streams_processor:
+  # Bypass landing key (default -1, which uses last logged key from events table)
+  default_bypass_landing_key: -1
+  # Number of tables to process in parallel
+  max_workers: 8
